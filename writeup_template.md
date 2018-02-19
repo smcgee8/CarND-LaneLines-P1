@@ -22,9 +22,8 @@ My pipeline for image processing can be found in the function definition "#proce
 
 The following images demonstrate several steps in the pipeline:
 
-![alt text][image1]
+![Grayscale](./writeup_images/grayscale.png)
 
-![image1] (./writeup_images/grayscale.png)
 [image2]: ./writeup_images/threshold.png "Threshold"
 [image3]: ./writeup_images/canny.png "Canny"
 [image4]: ./writeup_images/region_of_interest.png "Region Mask"
