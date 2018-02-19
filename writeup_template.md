@@ -20,7 +20,7 @@ My pipeline for image processing can be found in the function definition "#proce
 8. *Buffer:* The previous steps would be sufficient to produce 2 lane lines that track the line features in our images. However, in video, the result ends up being quite "jumpy" since lane line positions are being computed from scratch in each frame. We can take advantage of the knowledge that real road lanes tend to move about gradually. Rather than compute line positions from scratch, we average the last several line positions in prior frames and use that to compute the new frame's line position. The result is smoother and less susceptible to individual distorted images.
 9. *Image Overlay:* The last step is simply to apply our lines to the original image to produce our final visual.
 
-###The following images demonstrate several steps in the pipeline:
+### The following images demonstrate several steps in the pipeline:
 
 *Grayscale*  
 ![Grayscale](./writeup_images/grayscale.png)
