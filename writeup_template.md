@@ -10,7 +10,7 @@
 
 My pipeline for image processing can be found in the function definition "#process_image". It consists of 9 major steps:
 
-1. *Grayscale:* The image is first converted to a grayscale image
+1. _Grayscale:_ The image is first converted to a grayscale image
 2. *Threshold:* Any values less than 200 are set to 0 in the image. This is because the features we are interested in (yellow and white lane lines) tend to be quite bright. Thresholding can help us prevent false positives that occur later in the pipeline such as detecting edges on gray roadside barriers.
 3. *Gaussian Blur:* A Gaussian blur with a kernel size of 5 is applied in order to remove noise from the image that could be mistaken for a feature later in the pipeline.
 4. *Canny:* The next step is Canny edge detection. We set a high threshold of 200 and a low threshold of 100. I arrived at these values through experimentation. The edges in our lane lines have steep gradients.
@@ -20,16 +20,28 @@ My pipeline for image processing can be found in the function definition "#proce
 8. *Buffer:* The previous steps would be sufficient to produce 2 lane lines that track the line features in our images. However, in video, the result ends up being quite "jumpy" since lane line positions are being computed from scratch in each frame. We can take advantage of the knowledge that real road lanes tend to move about gradually. Rather than compute line positions from scratch, we average the last several line positions in prior frames and use that to compute the new frame's line position. The result is smoother and less susceptible to individual distorted images.
 9. *Image Overlay:* The last step is simply to apply our lines to the original image to produce our final visual.
 
-The following images demonstrate several steps in the pipeline:
+###The following images demonstrate several steps in the pipeline:
 
+####Grayscale
 ![Grayscale](./writeup_images/grayscale.png)
 
-[image2]: ./writeup_images/threshold.png "Threshold"
-[image3]: ./writeup_images/canny.png "Canny"
-[image4]: ./writeup_images/region_of_interest.png "Region Mask"
-[image5]: ./writeup_images/hough.png "Hough Transform"
-[image6]: ./writeup_images/average_lines.png "Averaging Sub-lines"
-[image7]: ./writeup_images/image_overlay.png "Image Overlay"
+####Threshold
+![Threshold](./writeup_images/threshold.png)
+
+####Canny
+![Canny](./writeup_images/canny.png)
+
+####Region Mask
+![Region Mask](./writeup_images/region_of_interest.png)
+
+####Hough Transform
+![Hough Transform](./writeup_images/hough.png)
+
+####Averaging Sub-lines
+![Hough Transform](./writeup_images/average_lines.png)
+
+####Image Overlay
+![Image Overlay](./writeup_images/image_overlay.png)
 
 ### 2. Identify potential shortcomings with your current pipeline
 
