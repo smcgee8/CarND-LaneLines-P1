@@ -22,25 +22,25 @@ My pipeline for image processing can be found in the function definition "#proce
 
 ###The following images demonstrate several steps in the pipeline:
 
-*Grayscale* \n
+*Grayscale*  
 ![Grayscale](./writeup_images/grayscale.png)
 
-*Threshold*
+*Threshold*  
 ![Threshold](./writeup_images/threshold.png)
 
-*Canny*
+*Canny*  
 ![Canny](./writeup_images/canny.png)
 
-*Region Mask*
+*Region Mask*  
 ![Region Mask](./writeup_images/region_of_interest.png)
 
-*Hough Transform*
+*Hough Transform*  
 ![Hough Transform](./writeup_images/hough.png)
 
-*Averaging Sub-lines*
+*Averaging Sub-lines*  
 ![Hough Transform](./writeup_images/average_lines.png)
 
-*Image Overlay*
+*Image Overlay*  
 ![Image Overlay](./writeup_images/image_overlay.png)
 
 ### 2. Potential shortcomings of my current pipeline
