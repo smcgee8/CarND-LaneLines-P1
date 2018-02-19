@@ -6,11 +6,11 @@
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### 1. Pipeline Description
 
 My pipeline for image processing can be found in the function definition "#process_image". It consists of 9 major steps:
 
-1. _Grayscale:_ The image is first converted to a grayscale image
+1. *Grayscale:* The image is first converted to a grayscale image
 2. *Threshold:* Any values less than 200 are set to 0 in the image. This is because the features we are interested in (yellow and white lane lines) tend to be quite bright. Thresholding can help us prevent false positives that occur later in the pipeline such as detecting edges on gray roadside barriers.
 3. *Gaussian Blur:* A Gaussian blur with a kernel size of 5 is applied in order to remove noise from the image that could be mistaken for a feature later in the pipeline.
 4. *Canny:* The next step is Canny edge detection. We set a high threshold of 200 and a low threshold of 100. I arrived at these values through experimentation. The edges in our lane lines have steep gradients.
@@ -22,32 +22,32 @@ My pipeline for image processing can be found in the function definition "#proce
 
 ###The following images demonstrate several steps in the pipeline:
 
-####Grayscale
+*Grayscale* \n
 ![Grayscale](./writeup_images/grayscale.png)
 
-####Threshold
+*Threshold*
 ![Threshold](./writeup_images/threshold.png)
 
-####Canny
+*Canny*
 ![Canny](./writeup_images/canny.png)
 
-####Region Mask
+*Region Mask*
 ![Region Mask](./writeup_images/region_of_interest.png)
 
-####Hough Transform
+*Hough Transform*
 ![Hough Transform](./writeup_images/hough.png)
 
-####Averaging Sub-lines
+*Averaging Sub-lines*
 ![Hough Transform](./writeup_images/average_lines.png)
 
-####Image Overlay
+*Image Overlay*
 ![Image Overlay](./writeup_images/image_overlay.png)
 
-### 2. Identify potential shortcomings with your current pipeline
+### 2. Potential shortcomings of my current pipeline
 
-There are several shortcomings with my pipeline. My pipeline would not work in night-time conditions, for example, because various threshold assumptions would not be suitable. My pipeline also would not work well for changing lanes. In a lane-changing scenario, you need to keep track of the lines for the adjacent lane in addition to your own. Additionally, my pipeline can only produce straight lines. For any sharp turns, my lines would not be a useful representation of the lane boundaries.
+There are several shortcomings of my pipeline. My pipeline would not work in night-time conditions, for example, because various threshold assumptions would not be suitable. My pipeline also would not work well for changing lanes. In a lane-changing scenario, you need to keep track of the lines for the adjacent lane in addition to your own. Additionally, my pipeline can only produce straight lines. For any sharp turns, my lines would not be a useful representation of the lane boundaries.
 
 
-### 3. Suggest possible improvements to your pipeline
+### 3. Possible improvements to my pipeline
 
 The short-comings described above could be overcome by adding additional features to my pipeline. Night-time driving is a difficult challenge, but ambient light levels could be measured and different sets of parameters or even equations for parameters could be used to adjust thresholds for a given light level. For lane-changing, we would need to add the ability to track adjacent lanes as well. We may be able to compute a distance between the lines in our lane and use that to determine if there is a lane adjacent to us, and if so, track that lane. For tracking better in turns, a 2 splines could be fit for the left and right lane lines, rather than using a line.
